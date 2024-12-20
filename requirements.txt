@@ -1,0 +1,7 @@
+Flask==2.0.1
+Flask-MySQLdb==1.0.1
+WTForms==2.3.3
+passlib==1.7.4
+Flask-Mail==0.9.1
+plotly==5.3.1
+itsdangerous==1.1.0
