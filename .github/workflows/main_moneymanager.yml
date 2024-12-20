@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_ec7cb04e3eda4442a9f76b7c417efdc4 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_41920053821d47b7a0f0a97b4405140e }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_03c352dfa9624480b5f7f37f4b0bdf61 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_db7f2c7a8c71413a96475ee84e36c71d }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_ec7cb04e3eda4442a9f76b7c417efdc4 }}/appsvc/staticsite:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_03c352dfa9624480b5f7f37f4b0bdf61 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'moneymanager'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d5719ac474a44500a8aec28b0a02820e }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_ec7cb04e3eda4442a9f76b7c417efdc4 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7ead188786a0459391bd08cf9f259d02 }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_03c352dfa9624480b5f7f37f4b0bdf61 }}/appsvc/staticsite:${{ github.sha }}'
